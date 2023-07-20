@@ -16,6 +16,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 import static com.tms.estore.utils.Constants.ControllerMappingPath.*;
+import static com.tms.estore.utils.Constants.MappingPath.ESHOP;
 import static com.tms.estore.utils.Constants.MappingPath.SUCCESS_REGISTER;
 
 @Configuration
@@ -33,7 +34,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(requests -> requests
                         .requestMatchers(ADMIN)
                         .hasRole("ADMIN")
-                        .requestMatchers(ROOT, ESHOP, SEARCH, SEARCH_FILTER, SEARCH_PARAM, PRODUCTS_PAGE, ANY_PRODUCT, REGISTRATION, SUCCESS_REGISTER)
+                        .requestMatchers(ROOT, ESTORE, SEARCH, SEARCH_FILTER, SEARCH_PARAM, PRODUCTS_PAGE, ANY_PRODUCT, REGISTRATION, SUCCESS_REGISTER)
                         .permitAll()
                         .requestMatchers(PathRequest.toStaticResources().atCommonLocations())
                         .permitAll()
